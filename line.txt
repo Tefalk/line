@@ -1,0 +1,31 @@
+function setup()
+    m = 0
+    parameter.number("m", 0 - 10, 10, 0)
+    parameter.number("c",0 - HEIGHT / 2, HEIGHT / 2, 0)  
+    parameter.action("reset m", function() resetGradient() end) 
+    parameter.action("reset c", function() resetC() end)
+    x = 0 - WIDTH / 2 
+    x2= WIDTH / 2
+end
+
+-- This function gets called once every frame
+function draw()
+    background(78, 107, 77, 255)
+    sprite("Dropbox:World1", HEIGHT/2, WIDTH/2)
+    strokeWidth(5)
+    stroke(127, 127, 127, 255)
+    line(0, HEIGHT / 2, WIDTH, HEIGHT / 2)
+    line(WIDTH / 2, 0, WIDTH / 2, HEIGHT)
+    stroke(255, 255, 255, 255)
+    y = m * x + c
+    y2 = m * x2 + c
+    translate(WIDTH / 2, HEIGHT / 2)
+    line(x, y, x2, y2)  
+end
+
+function resetGradient()
+    m = 0
+end
+function resetC()
+    c = 0
+end
