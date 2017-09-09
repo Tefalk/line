@@ -1,0 +1,43 @@
+
+function setup()
+    parameter.number("m", 0 - WIDTH / 2, WIDTH / 2, 0)
+    parameter.number("c",0 - HEIGHT / 2, HEIGHT / 2, 0)  
+    parameter.action("reset m", function() resetGradient() end) 
+    parameter.action("reset c", function() resetC() end)
+    backingMode(RETAINED)
+    print("Touch and drag on the screen")
+    x = -400
+    x2 = 400
+    y = -400
+    y2 = 400
+    x3 = -400
+    x4 = 400
+    y3 = -400
+    y4 = 400
+end
+
+-- This function gets called once every frame
+function draw()
+    background(78, 107, 77, 255)
+    sprite("Dropbox:World1", HEIGHT/2, WIDTH/2)
+--    sprite("Dropbox:larger mCraft old guy", HEIGHT/2, WIDTH/2)
+    strokeWidth(5)
+    stroke(127, 127, 127, 255)
+    stroke(191, 50, 45, 255)
+    
+    
+
+    translate(WIDTH / 2, HEIGHT / 2)
+    line(m, y, m, y2) 
+    line(x3, c, x4, c) 
+    print ("latitude is ", c)
+    print ("longitude is", m)
+
+end
+
+function resetGradient()
+    m = 0
+end
+function resetC()
+    c = 0
+end
